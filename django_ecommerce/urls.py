@@ -1,11 +1,13 @@
-
 from django.contrib import admin
 from django.urls import path, include
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
+from django.conf import settings
+from django.conf.urls.static import static
 
-    path('', include('index.urls')),
-    path('shop', include('shop.urls')),
-    path('about', include('about.urls')),
-]
+urlpatterns = [
+                  path('admin/', admin.site.urls),
+
+                  path('', include('index.urls')),
+                  path('shop', include('shop.urls')),
+                  path('about', include('about.urls')),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
