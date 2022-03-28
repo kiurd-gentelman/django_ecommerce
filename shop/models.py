@@ -40,8 +40,24 @@ class Product(models.Model):
         return self.name
 
 
+class Cart(models.Model):
+    pass
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.product.name
+
+
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'image', 'brand', 'category', 'description', 'created_at', 'updated_at']
+    list_display = ['name', 'image', 'brand', 'category', 'description', 'tax', 'created_at', 'updated_at']
+
+    def tax(self, obj):
+        return '$' + obj.price * 100
 
 # class CategoryAdmin(admin.ModelAdmin):
 #     list_display = ['name', 'image', 'created_at', 'updated_at']
