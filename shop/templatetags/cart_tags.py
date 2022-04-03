@@ -11,3 +11,6 @@ def cart_item_count():
     return Cart.objects.count()
 
 
+@register.inclusion_tag("cart_drawer.html")
+def cart_drawer():
+    return {"cart": Cart.objects.all()}

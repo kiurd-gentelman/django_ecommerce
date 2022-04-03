@@ -213,13 +213,14 @@
             <a href="#" class="close-side"><i class="fa fa-times"></i></a>
             <li class="cart-box">
                 <ul class="cart-list">
-                    {% for cart in Cart.objects.all %}
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt=""/></a>
-                            <h6><a href="#">{{ cart }}</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
-                        </li>
-                    {% endfor %}
+                    {% cart_drawer %}
+{#                    {% for single_cart_item in cart %}#}
+{#                        <li>#}
+{#                            <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt=""/></a>#}
+{#                            <h6><a href="#">{{ single_cart_item }}</a></h6>#}
+{#                            <p>1x - <span class="price">$60.00</span></p>#}
+{#                        </li>#}
+{#                    {% endfor %}#}
 
 {#                    <li>#}
 {#                        <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt=""/></a>#}
