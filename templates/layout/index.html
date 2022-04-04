@@ -99,9 +99,6 @@
 </div>
 <!-- End Main Top -->
 
-{% block content %}
-{% endblock %}
-
 <!-- Start Main Top -->
 <header class="main-header">
     <!-- Start Navigation -->
@@ -228,7 +225,7 @@
 {#                        <p>1x - <span class="price">$40.00</span></p>#}
 {#                    </li>#}
                     <li class="total">
-                        <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                        <a href="{% url 'shop.cart' %}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
                         <span class="float-right"><strong>Total</strong>: $180.00</span>
                     </li>
                 </ul>
@@ -240,6 +237,9 @@
 </header>
 <!-- End Main Top -->
 
+
+{% block content %}
+{% endblock %}
 
 <!-- Start Footer  -->
 <footer>
