@@ -57,7 +57,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'image', 'brand', 'category', 'description', 'tax', 'created_at', 'updated_at']
 
     def tax(self, obj):
-        return '$' + obj.price * 100
+        return obj.price / 100
 
 # class CategoryAdmin(admin.ModelAdmin):
 #     list_display = ['name', 'image', 'created_at', 'updated_at']
